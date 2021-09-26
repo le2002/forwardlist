@@ -128,7 +128,7 @@ void forwardList::erase(const int &number) {
 			p_prev = p_prev->next; // 找到p前驱
 		}
 		p_prev->next = p->next; // p_prev的后继指向p的后继
-		delete p; // 释放节点                               
+		delete p; // 释放节点
 		p = nullptr;
 		// 调整尾指针
 		if (p_prev->next == nullptr) {
