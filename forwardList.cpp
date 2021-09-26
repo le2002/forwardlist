@@ -2,11 +2,11 @@
 
 void forwardList::check(const int &pos, const int &left, const int &right) {
 	if (pos < left || pos > right) {
-		cout << "ä½ç½®è¶Šç•Œ";
+		cout << "Î»ÖÃÔ½½ç";
 	}
 }
 
-// æ‰¾åˆ°è¿”å›žå‰é©±çš„ next, æœªæ‰¾åˆ°è¿”å›ž nullptr
+// ÕÒµ½·µ»ØÇ°ÇýµÄ next, Î´ÕÒµ½·µ»Ø nullptr
 Node *forwardList::get(const int &pos) const{
 	Node *p = head;
 	int j = 0;
@@ -120,23 +120,26 @@ void forwardList::erase(const int &number) {
 	if (p == head)
 	{
 		head = p->next;
-		delete p; // é‡Šæ”¾èŠ‚ç‚¹
+		delete p; // ÊÍ·Å½Úµã
 	}
 	else if (p != nullptr)
 	{
 		while (p_prev->next != p) {
-			p_prev = p_prev->next; // æ‰¾åˆ°på‰é©±
+			p_prev = p_prev->next; // ÕÒµ½pÇ°Çý
 		}
-		p_prev->next = p->next; // p_prevçš„åŽç»§æŒ‡å‘pçš„åŽç»§
-		delete p; // é‡Šæ”¾èŠ‚ç‚¹
+		p_prev->next = p->next; // p_prevµÄºó¼ÌÖ¸ÏòpµÄºó¼Ì
+		delete p; // ÊÍ·Å½Úµã                               
 		p = nullptr;
-		// è°ƒæ•´å°¾æŒ‡é’ˆ
+		// µ÷ÕûÎ²Ö¸Õë
 		if (p_prev->next == nullptr) {
 			tail = p_prev;
 		}
 	}
-	else
+	else {
 		cout << "Sorry, not found!" << endl;
+		clear();
+		exit(0);
+	}
 
 }
 
@@ -164,6 +167,8 @@ void forwardList::insert_before(const int &number, const int &pos) {
 	}
 	else {
 		cout << "Sorry, can't insert!" << endl;
+		clear();
+		exit(0);
 	}
 }
 
@@ -180,6 +185,8 @@ void forwardList::insert_after(const int &number, const int &pos) {
 	}
 	else {
 		cout << "Sorry, can't insert!" << endl;
+		clear();
+		exit(0);
 	}
 }
 
@@ -212,7 +219,7 @@ bool forwardList::isSorted() {
 }
 
 void forwardList::sort() {
-	//sort(0, size());
+	;
 }
 
 void forwardList::Delete(const int &left, const int &right) {
@@ -245,8 +252,8 @@ int forwardList::operator[](const int &pos) {
 	if (p)
 		return p->data;
 	else {
-		cout << "ä¸‹æ ‡è¶Šç•Œ!" << endl;
-		this->~forwardList();
+		cout << "ÏÂ±êÔ½½ç!" << endl;
+		clear();
 		exit(0);
 	}
 }
