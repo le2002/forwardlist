@@ -1,7 +1,16 @@
 #pragma once
+#include "forwardlist.h"
 
-typedef struct _node
-{
+class Node {
+	friend class forwardList;
+private:
 	int data;
-	struct _node *next;
-} Node;
+	class Node *next;
+public:
+	int Data() const {
+		return data;
+	}
+	Node *Next() const {
+		return next;
+	}
+};
